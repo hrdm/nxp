@@ -1,49 +1,6 @@
-14:31:44 **** Build of configuration Debug for project dma-tst ****
+15:32:03 **** Incremental Build of configuration Debug for project dma-tst ****
 make -r -j4 all 
-Building file: ../src/aeabi_romdiv_patch.s
-Invoking: MCU Assembler
-Building file: ../src/cr_startup_lpc82x.c
-arm-none-eabi-gcc -c -x assembler-with-cpp -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__USE_ROMDIVIDE -D__USE_LPCOPEN -DNO_BOARD_LIB -D__LPC82X__ -D__REDLIB__ -I"D:\Milton\nxp\nxp\nxp-windows\dma-tst\inc" -I"D:\Milton\nxp\nxp\nxp-windows\lpc_chip_82x\inc" -g3 -mcpu=cortex-m0 -mthumb -specs=redlib.specs -o "src/aeabi_romdiv_patch.o" "../src/aeabi_romdiv_patch.s"
-Building file: ../src/crp.c
-Building file: ../src/dma-tst.c
-Invoking: MCU C Compiler
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__USE_LPCOPEN -DNO_BOARD_LIB -D__LPC82X__ -D__REDLIB__ -I"D:\Milton\nxp\nxp\nxp-windows\dma-tst\inc" -I"D:\Milton\nxp\nxp\nxp-windows\lpc_chip_82x\inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__USE_LPCOPEN -DNO_BOARD_LIB -D__LPC82X__ -D__REDLIB__ -I"D:\Milton\nxp\nxp\nxp-windows\dma-tst\inc" -I"D:\Milton\nxp\nxp\nxp-windows\lpc_chip_82x\inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/cr_startup_lpc82x.d" -MT"src/cr_startup_lpc82x.o" -MT"src/cr_startup_lpc82x.d" -o "src/cr_startup_lpc82x.o" "../src/cr_startup_lpc82x.c"
-arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__USE_LPCOPEN -DNO_BOARD_LIB -D__LPC82X__ -D__REDLIB__ -I"D:\Milton\nxp\nxp\nxp-windows\dma-tst\inc" -I"D:\Milton\nxp\nxp\nxp-windows\lpc_chip_82x\inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/dma-tst.d" -MT"src/dma-tst.o" -MT"src/dma-tst.d" -o "src/dma-tst.o" "../src/dma-tst.c"
-Finished building: ../src/aeabi_romdiv_patch.s
- 
-Finished building: ../src/crp.c
-Building file: ../src/mtb.c
- 
-Finished building: ../src/cr_startup_lpc82x.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__USE_LPCOPEN -DNO_BOARD_LIB -D__LPC82X__ -D__REDLIB__ -I"D:\Milton\nxp\nxp\nxp-windows\dma-tst\inc" -I"D:\Milton\nxp\nxp\nxp-windows\lpc_chip_82x\inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/mtb.d" -MT"src/mtb.o" -MT"src/mtb.d" -o "src/mtb.o" "../src/mtb.c"
- 
-Building file: ../src/sysinit.c
-Finished building: ../src/dma-tst.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__USE_LPCOPEN -DNO_BOARD_LIB -D__LPC82X__ -D__REDLIB__ -I"D:\Milton\nxp\nxp\nxp-windows\dma-tst\inc" -I"D:\Milton\nxp\nxp\nxp-windows\lpc_chip_82x\inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/sysinit.d" -MT"src/sysinit.o" -MT"src/sysinit.d" -o "src/sysinit.o" "../src/sysinit.c"
- 
-Finished building: ../src/mtb.c
- 
-Finished building: ../src/sysinit.c
- 
-Building target: dma-tst.axf
-Invoking: MCU Linker
-arm-none-eabi-gcc -nostdlib -L"D:\Milton\nxp\nxp\nxp-windows\lpc_chip_82x\Debug" -Xlinker -Map="dma-tst.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0 -mthumb -T "dma-tst_Debug.ld" -o "dma-tst.axf"  ./src/aeabi_romdiv_patch.o ./src/cr_startup_lpc82x.o ./src/crp.o ./src/dma-tst.o ./src/mtb.o ./src/sysinit.o   -llpc_chip_82x
-Memory region         Used Size  Region Size  %age Used
-        MFlash32:        2780 B        32 KB      8.48%
-         RamLoc8:         272 B         8 KB      3.32%
-Finished building target: dma-tst.axf
- 
-make --no-print-directory post-build
-Performing post-build steps
-arm-none-eabi-size "dma-tst.axf"; # arm-none-eabi-objcopy -v -O binary "dma-tst.axf" "dma-tst.bin" ; # checksum -p LPC824 -d "dma-tst.bin";
-   text	   data	    bss	    dec	    hex	filename
-   2780	      0	    272	   3052	    bec	dma-tst.axf
- 
+make: Nothing to be done for `all'.
 
-14:31:47 Build Finished (took 2s.288ms)
+15:32:03 Build Finished (took 129ms)
 

@@ -26,3 +26,144 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.cdt.core 1 0 2017-07-19 13:45:42.845
 !MESSAGE Indexed 'dma-tst' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.crt.log 4 -1 2017-07-19 15:02:45.745
+!MESSAGE Exception
+!STACK 0
+java.lang.Exception: java.lang.InterruptedException
+	at com.crt.utils.general.Reporter.log(Reporter.java:603)
+	at com.crt.utils.general.SafeUIJobWithProgress.run(SafeUIJobWithProgress.java:92)
+	at com.crt.utils.general.Reporter.showMessageBox(Reporter.java:862)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe.booter(AbstractCommonBootableProbe.java:100)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe.access$1(AbstractCommonBootableProbe.java:80)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe$2.run(AbstractCommonBootableProbe.java:518)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.InterruptedException
+	at com.crt.utils.general.SafeUIJobWithProgress.waitForResult(SafeUIJobWithProgress.java:77)
+	at com.crt.utils.general.SafeUIJobWithProgress.run(SafeUIJobWithProgress.java:87)
+	... 5 more
+
+!ENTRY com.crt.log 4 -1 2017-07-19 15:03:20.878
+!MESSAGE Exception
+!STACK 0
+java.lang.Exception: java.lang.InterruptedException
+	at com.crt.utils.general.Reporter.log(Reporter.java:603)
+	at com.crt.utils.general.SafeUIJobWithProgress.run(SafeUIJobWithProgress.java:92)
+	at com.crt.utils.general.Reporter.showMessageBox(Reporter.java:862)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe.booter(AbstractCommonBootableProbe.java:100)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe.access$1(AbstractCommonBootableProbe.java:80)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe$2.run(AbstractCommonBootableProbe.java:518)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.InterruptedException
+	at com.crt.utils.general.SafeUIJobWithProgress.waitForResult(SafeUIJobWithProgress.java:77)
+	at com.crt.utils.general.SafeUIJobWithProgress.run(SafeUIJobWithProgress.java:87)
+	... 5 more
+
+!ENTRY com.crt.log 4 -1 2017-07-19 15:03:56.141
+!MESSAGE Exception
+!STACK 0
+java.lang.Exception: java.lang.InterruptedException
+	at com.crt.utils.general.Reporter.log(Reporter.java:603)
+	at com.crt.utils.general.SafeUIJobWithProgress.run(SafeUIJobWithProgress.java:92)
+	at com.crt.utils.general.Reporter.showMessageBox(Reporter.java:862)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe.booter(AbstractCommonBootableProbe.java:100)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe.access$1(AbstractCommonBootableProbe.java:80)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe$2.run(AbstractCommonBootableProbe.java:518)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.InterruptedException
+	at com.crt.utils.general.SafeUIJobWithProgress.waitForResult(SafeUIJobWithProgress.java:77)
+	at com.crt.utils.general.SafeUIJobWithProgress.run(SafeUIJobWithProgress.java:87)
+	... 5 more
+
+!ENTRY com.crt.log 4 -1 2017-07-19 15:04:31.686
+!MESSAGE Exception
+!STACK 0
+java.lang.Exception: java.lang.InterruptedException
+	at com.crt.utils.general.Reporter.log(Reporter.java:603)
+	at com.crt.utils.general.SafeUIJobWithProgress.run(SafeUIJobWithProgress.java:92)
+	at com.crt.utils.general.Reporter.showMessageBox(Reporter.java:862)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe.booter(AbstractCommonBootableProbe.java:100)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe.access$1(AbstractCommonBootableProbe.java:80)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe$2.run(AbstractCommonBootableProbe.java:518)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.InterruptedException
+	at com.crt.utils.general.SafeUIJobWithProgress.waitForResult(SafeUIJobWithProgress.java:77)
+	at com.crt.utils.general.SafeUIJobWithProgress.run(SafeUIJobWithProgress.java:87)
+	... 5 more
+
+!ENTRY com.crt.log 4 -1 2017-07-19 15:05:06.719
+!MESSAGE Exception
+!STACK 0
+java.lang.Exception: java.lang.InterruptedException
+	at com.crt.utils.general.Reporter.log(Reporter.java:603)
+	at com.crt.utils.general.SafeUIJobWithProgress.run(SafeUIJobWithProgress.java:92)
+	at com.crt.utils.general.Reporter.showMessageBox(Reporter.java:862)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe.booter(AbstractCommonBootableProbe.java:100)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe.access$1(AbstractCommonBootableProbe.java:80)
+	at com.crt.debugcommon.emulator.common.AbstractCommonBootableProbe$2.run(AbstractCommonBootableProbe.java:518)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.InterruptedException
+	at com.crt.utils.general.SafeUIJobWithProgress.waitForResult(SafeUIJobWithProgress.java:77)
+	at com.crt.utils.general.SafeUIJobWithProgress.run(SafeUIJobWithProgress.java:87)
+	... 5 more
+!SESSION 2017-07-19 15:13:14.352 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-07-19 15:13:37.451
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.ui 4 4 2017-07-19 15:14:00.946
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-07-19 15:14:00.959
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2017-07-19 15:14:07.403
+!MESSAGE Recreating part suppport. No part support available.
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-07-19 15:14:12.831
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Milton'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.crt.log 1 0 2017-07-19 15:17:42.231
+!MESSAGE Drivers loaded in 1003 milliseconds
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-19 15:17:54.634
+!MESSAGE No active LinkServer launch configuration found in project 'dma-tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-19 15:17:54.648
+!MESSAGE No active LinkServer launch configuration found in project 'dma-tst'! Please select the Connect Script manually.
+
+!ENTRY Program Flash 4 -1 2017-07-19 15:18:15.474
+!MESSAGE 02: Failed on connect: Ee(36). Could not connect to core.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-19 15:18:48.374
+!MESSAGE No active LinkServer launch configuration found in project 'dma-tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-19 15:18:48.390
+!MESSAGE No active LinkServer launch configuration found in project 'dma-tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-19 15:21:25.506
+!MESSAGE No active LinkServer launch configuration found in project 'dma-tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-19 15:21:25.522
+!MESSAGE No active LinkServer launch configuration found in project 'dma-tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-19 15:30:50.263
+!MESSAGE No active LinkServer launch configuration found in project 'dma-tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-19 15:30:50.276
+!MESSAGE No active LinkServer launch configuration found in project 'dma-tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-19 15:32:12.289
+!MESSAGE No active LinkServer launch configuration found in project 'dma-tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-19 15:32:12.309
+!MESSAGE No active LinkServer launch configuration found in project 'dma-tst'! Please select the Connect Script manually.

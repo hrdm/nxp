@@ -39,6 +39,7 @@ int main(void) {
     // TODO: insert code here
     Chip_GPIO_Init(LPC_GPIO_PORT);
     Chip_GPIO_SetDir(LPC_GPIO_PORT, 0, 16, 1);
+    // Enter an infinite loop, just incrementing a counter
     Chip_GPIO_SetPinOutHigh(LPC_GPIO_PORT, 0, 16);
 
 
