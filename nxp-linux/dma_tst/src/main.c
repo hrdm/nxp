@@ -12,13 +12,14 @@
 #if defined(NO_BOARD_LIB)
 #include "chip.h"
 #else
-#include "board.h"
+#include <brd.h>
 #endif
 #endif
 
 #include <cr_section_macros.h>
 
 // TODO: insert other include files here
+#include "brd.h"
 
 // TODO: insert other definitions and declarations here
 
@@ -37,10 +38,14 @@ int main(void) {
 #endif
 
     // TODO: insert code here
-
+    Board_Init();
     // Enter an infinite loop, just incrementing a counter
     while(1) {
 
     }
     return 0 ;
+}
+
+void SysTick_Handler(void) {
+	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT, 0, tstPin0);
 }

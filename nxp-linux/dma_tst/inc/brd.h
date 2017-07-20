@@ -1,0 +1,46 @@
+#ifndef _BRD_H_
+#define _BRD_H_
+
+#include "chip.h"
+#include <cr_section_macros.h>
+
+#define __SYSTICK
+#define __GPIO
+//#define __UART
+//#define __SPI
+//#define __DMA
+//#define __ADC
+
+
+/* SysTick defines */
+#define TICKRATE_HZ (2)
+
+/* GPIO defines */
+#define tstPin0 16 //P0_16
+#define tstPin1 13 //P0_13
+
+/* UART defines */
+#define LPC_UART LPC_USART1
+
+/* SPI defines */
+#define LPC_SPI	LPC_SPI1
+#define LPC_SPI_RATE 4000000 //Hz
+
+/* DMA defines */
+#define SRC_SIZE 4
+extern uint8_t src[SRC_SIZE];
+extern DMA_CHDESC_T dmaDesc;
+
+/* Prototypes */
+void Board_Init(void);
+void SystemClock_Init(void);
+void SysTick_Init(void);
+void GPIO_Init(void);
+void UART_Init(void);
+void SPI_Init(void);
+void DMA_Init(void);
+void ADC_Init(void);
+
+
+
+#endif
