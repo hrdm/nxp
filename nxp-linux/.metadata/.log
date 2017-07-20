@@ -1,0 +1,21 @@
+!SESSION 2017-07-19 23:51:58.416 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /media/milton/Data/embedded systems/nxp/nxp/nxp-linux -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2017-07-19 23:52:02.530
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-07-19 23:52:02.532
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2017-07-19 23:52:03.924
+!MESSAGE Recreating part suppport. No part support available.
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-07-19 23:53:47.310
+!MESSAGE Indexed 'lpc_chip_82x' (28 sources, 68 headers) in 1.39 sec: 3,818 declarations; 8,321 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-07-19 23:55:14.035
+!MESSAGE Indexed 'dma_tst' (0 sources, 0 headers) in 0.003 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
