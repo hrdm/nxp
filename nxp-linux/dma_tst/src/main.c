@@ -31,14 +31,14 @@ int main(void) {
 #if !defined(NO_BOARD_LIB)
     // Set up and initialize all required blocks and
     // functions related to the board hardware
-    Board_Init();
+    Board_init();
     // Set the LED to the state of "On"
     Board_LED_Set(0, true);
 #endif
 #endif
 
     // TODO: insert code here
-    Board_Init();
+    board_init();
     // Enter an infinite loop, just incrementing a counter
     while(1) {
 
@@ -48,4 +48,5 @@ int main(void) {
 
 void SysTick_Handler(void) {
 	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT, 0, tstPin0);
+	Chip_UART_SendByte(LPC_UART1, 'm');
 }

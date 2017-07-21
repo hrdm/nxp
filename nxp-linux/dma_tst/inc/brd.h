@@ -4,12 +4,12 @@
 #include "chip.h"
 #include <cr_section_macros.h>
 
-#define __SYSTICK
-#define __GPIO
-//#define __UART
-//#define __SPI
-//#define __DMA
-//#define __ADC
+#define __lpc_systick__
+#define __lpc_gpio__
+#define __lpc_uart__
+//#define __lpc_spi__
+//#define __lpc_dma__
+//#define __lpc_adc__
 
 
 /* SysTick defines */
@@ -20,7 +20,8 @@
 #define tstPin1 13 //P0_13
 
 /* UART defines */
-#define LPC_UART LPC_USART1
+#define LPC_UART1 LPC_USART1
+#define LPC_UART1_BAUD 115200
 
 /* SPI defines */
 #define LPC_SPI	LPC_SPI1
@@ -32,12 +33,12 @@ extern uint8_t src[SRC_SIZE];
 extern DMA_CHDESC_T dmaDesc;
 
 /* Prototypes */
-void Board_Init(void);
-void SystemClock_Init(void);
-void SysTick_Init(void);
-void GPIO_Init(void);
-void UART_Init(void);
-void SPI_Init(void);
+void board_init(void);
+void systemclock_init(void);
+void systick_init(void);
+void gpio_init(void);
+void uart_init(void);
+void spi_init(void);
 void DMA_Init(void);
 void ADC_Init(void);
 

@@ -1,0 +1,191 @@
+#include "brd.h"
+
+uint8_t msg[] = "Starting...\n\r";
+
+void systemclock_init(void) {
+  SystemInit();
+  SystemCoreClockUpdate();
+}
+
+#ifdef __SYSTICK
+void systick_init(void) {
+  SysTick_Config(SystemCoreClock / TICKRATE_HZ);
+}
+#endif
+
+#ifdef __lpc_gpio_
+void gpio_init(void) {
+  Chip_GPIO_Init(LPC_GPIO_PORT);
+#ifdef tstPin0
+  Chip_GPIO_SetPinState(LPC_GPIO_PORT, 0, tstPin0, false);
+  Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, 0, tstPin0);
+#endif
+#ifdef tstPin1
+  Chip_Clock_EnablePeriphClock(SYSCTL_CLOCK_SWM);
+  Chip_SWM_DisableFixedPin(SWM_FIXED_ADC10);
+  Chip_Clock_DisablePeriphClock(SYSCTL_CLOCK_SWM);
+  Chip_GPIO_SetPinState(LPC_GPIO_PORT, 0, tstPin1, false);
+  Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, 0, tstPin1);
+#endif
+
+}
+#endif
+
+#ifdef __UART
+void UART_Init(void) {
+
+	/* Enable the clock to the Switch Matrix */
+	Chip_Clock_EnablePeriphClock(SYSCTL_CLOCK_SWM);
+
+	/* Connect the U0_TXD_O and U0_RXD_I signals to port pins(P0.18, P0.7) */
+	Chip_SWM_DisableFixedPin(SWM_FIXED_ADC0);
+	Chip_SWM_DisableFixedPin(SWM_FIXED_ADC8);
+
+	/* Enable UART Divider clock, divided by 1 */
+	Chip_Clock_SetUARTClockDiv(1);
+
+	/* Divided by 1 */
+	if (LPC_UART == LPC_USART0) {
+		Chip_SWM_MovablePinAssign(SWM_U0_TXD_O, 18);
+		Chip_SWM_MovablePinAssign(SWM_U0_RXD_I, 7);
+	} else if (LPC_UART == LPC_USART1) {
+		Chip_SWM_MovablePinAssign(SWM_U1_TXD_O, 18);
+		Chip_SWM_MovablePinAssign(SWM_U1_RXD_I, 7);
+	} else {
+		Chip_SWM_MovablePinAssign(SWM_U2_TXD_O, 18);
+		Chip_SWM_MovablePinAssign(SWM_U2_RXD_I, 7);
+	}
+
+	/* Disable the clock to the Switch Matrix to save power */
+	Chip_Clock_DisablePeriphClock(SYSCTL_CLOCK_SWM);
+
+
+  	Chip_UART_Init(LPC_UART);
+  	Chip_UART_ConfigData(LPC_UART, UART_CFG_DATALEN_8 | UART_CFG_PARITY_NONE | UART_CFG_STOPLEN_1);
+  	Chip_Clock_SetUSARTNBaseClockRate((115200 * 16), true);
+  	Chip_UART_SetBaud(LPC_UART, 115200);
+  	Chip_UART_Enable(LPC_UART);
+  	Chip_UART_TXEnable(LPC_UART);
+}
+#endif
+
+#ifdef __SPI
+
+void SPI_Init(void) {
+	SPI_DELAY_CONFIG_T DelayConfigStruct;
+	/*
+	 * Initialize SSP0 pins connect
+	 * SSEL1: PINASSIGN5[23:16]: Select P0.15
+	 * SCK1: PINASSIGN4[31:24]: Select P0.24
+	 * MISO1: PINASSIGN5[15:8] : Select P0.25
+	 * MOSI1: PINASSIGN5[7:0]: Select P0.26
+	 */
+	Chip_Clock_EnablePeriphClock(SYSCTL_CLOCK_SWM);
+	Chip_SWM_MovablePinAssign(SWM_SPI1_SSEL0_IO, 15);
+	Chip_SWM_MovablePinAssign(SWM_SPI1_SCK_IO, 24);
+	Chip_SWM_MovablePinAssign(SWM_SPI1_MISO_IO, 25);
+	Chip_SWM_MovablePinAssign(SWM_SPI1_MOSI_IO, 26);
+	Chip_Clock_DisablePeriphClock(SYSCTL_CLOCK_SWM);
+    /*
+	 ConfigStruct.Mode = SPI_MODE_TEST;
+	 ConfigStruct.ClkDiv = Chip_SPI_CalClkRateDivider(LPC_SPI, 100000);
+	 ConfigStruct.ClockMode = SPI_CLOCK_CPHA0_CPOL0;
+	 ConfigStruct.DataOrder = SPI_DATA_MSB_FIRST;
+	 ConfigStruct.SSELPol = SPI_SSEL_ACTIVE_LO;
+	*/
+	Chip_SPI_Init(LPC_SPI);
+	Chip_SPI_ConfigureSPI(LPC_SPI, SPI_MODE_MASTER |	/* Enable master/Slave mode */
+					  SPI_CLOCK_CPHA0_CPOL0 |	/* Set Clock polarity to 0 */
+					  SPI_CFG_MSB_FIRST_EN |/* Enable MSB first option */
+					  SPI_CFG_SPOL_LO|
+//					  SPI_TXCTL_RXIGNORE|
+					  SPI_CFG_LBM_EN);	/* Chipselect is active low */
+	Chip_SPI_SetControlInfo(LPC_SPI, 8,
+						(SPI_TXCTL_ASSERT_SSEL |
+						 SPI_TXCTL_EOT |
+						 SPI_TXCTL_RXIGNORE));
+	Chip_SPIM_SetClockRate(LPC_SPI, LPC_SPI_RATE);
+	DelayConfigStruct.FrameDelay = 0;
+	DelayConfigStruct.PostDelay = 0;
+	DelayConfigStruct.PreDelay = 0;
+	DelayConfigStruct.TransferDelay = 0;
+	Chip_SPI_DelayConfig(LPC_SPI, &DelayConfigStruct);
+//	Chip_SPI_EnableInts(LPC_SPI, SPI_INTENSET_TXDYEN|SPI_INTENSET_RXDYEN);
+//	NVIC_EnableIRQ(SPI1_IRQn);
+	Chip_SPI_Enable(LPC_SPI);
+}
+#endif
+
+#ifdef __DMA
+DMA_CHDESC_T dmaDesc;
+uint8_t src[SRC_SIZE] = {0xAA, 0x01, 0x02, 0x03};
+
+void DMA_Init(void) {
+	/* DMA initialization - enable DMA clocking and reset DMA if needed */
+	Chip_DMA_Init(LPC_DMA);
+
+	/* Enable DMA controller and use driver provided DMA table for current descriptors */
+	Chip_DMA_Enable(LPC_DMA);
+	Chip_DMA_SetSRAMBase(LPC_DMA, DMA_ADDR(Chip_DMA_Table));
+
+	/* Setup channel 0 for the following configuration:
+	- High channel priority
+	- Interrupt A fires on descriptor completion */
+	Chip_DMA_EnableChannel(LPC_DMA, DMA_CH9);
+	Chip_DMA_EnableIntChannel(LPC_DMA, DMA_CH9);
+	Chip_DMA_SetupChannelConfig(LPC_DMA, DMA_CH9,
+							(DMA_CFG_PERIPHREQEN | DMA_CFG_CHPRIORITY(0)));
+
+	/* DMA descriptor for memory to memory operation - note that addresses must
+	be the END address for src and destination, not the starting address.
+	 DMA operations moves from end to start. */
+	dmaDesc.source = DMA_ADDR((&src[0]) + SRC_SIZE - 1);
+//	dmaDesc.source = DMA_ADDR(&src[3]);
+	dmaDesc.dest = DMA_ADDR(&LPC_SPI1->TXDAT);
+	dmaDesc.next = DMA_ADDR(0);
+	Chip_DMA_SetupTranChannel(LPC_DMA, DMA_CH9, &dmaDesc);
+	Chip_DMA_SetValidChannel(LPC_DMA, DMA_CH9);
+	Chip_DMA_SetupChannelTransfer(LPC_DMA, DMA_CH9,
+								  (DMA_XFERCFG_CFGVALID |
+//								   DMA_XFERCFG_SWTRIG   |
+								   DMA_XFERCFG_WIDTH_8 |
+								   DMA_XFERCFG_SRCINC_1 |
+								   DMA_XFERCFG_DSTINC_0|
+								   DMA_XFERCFG_XFERCOUNT(SRC_SIZE)));
+	Chip_DMA_SetTrigChannel(LPC_DMA, DMA_CH9);
+	/* Enable DMA interrupt */
+//	NVIC_EnableIRQ(DMA_IRQn);
+}
+#endif
+
+#ifdef __ADC
+void ADC_Init(void) {
+  Chip_ADC_Init(LPC_ADC, 0);
+  Chip_ADC_StartCalibration(LPC_ADC);
+  while (!(Chip_ADC_IsCalibrationDone(LPC_ADC))) {}
+  Chip_ADC_SetClockRate(LPC_ADC, ADC_MAX_SAMPLE_RATE);
+
+  /* Setup a sequencer to do the following:
+  Perform ADC conversion of ADC channels 0 only */
+  Chip_ADC_SetupSequencer(LPC_ADC, ADC_SEQA_IDX, (ADC_SEQ_CTRL_CHANSEL(BOARD_ADC_CH) | ADC_SEQ_CTRL_MODE_EOS));
+
+  /* Enable the clock to the Switch Matrix */
+  Chip_Clock_EnablePeriphClock(SYSCTL_CLOCK_SWM);
+
+  /* Configure the SWM for P0-6 as the input for the ADC1 */
+  Chip_SWM_EnableFixedPin(SWM_FIXED_ADC1);
+
+  /* Disable the clock to the Switch Matrix to save power */
+  Chip_Clock_DisablePeriphClock(SYSCTL_CLOCK_SWM);
+}
+#endif
+
+void board_init(void){
+	systemclock_init();
+	systick_init();
+	gpio_init();
+	// UART_Init();
+	// SPI_Init();
+	// DMA_Init();
+	//Chip_UART_SendBlocking(LPC_UART, msg, sizeof(msg));
+}

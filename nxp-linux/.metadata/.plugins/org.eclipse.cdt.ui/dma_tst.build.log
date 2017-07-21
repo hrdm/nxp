@@ -1,6 +1,6 @@
-17:43:45 **** Incremental Build of configuration Debug for project dma_tst ****
+03:05:38 **** Incremental Build of configuration Debug for project dma_tst ****
 make -r -j8 all 
 make: Nothing to be done for 'all'.
 
-17:43:45 Build Finished (took 67ms)
+03:05:38 Build Finished (took 74ms)
 

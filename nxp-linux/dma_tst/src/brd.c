@@ -2,19 +2,19 @@
 
 uint8_t msg[] = "Starting...\n\r";
 
-void SystemClock_Init(void) {
+void systemclock_init(void) {
   SystemInit();
   SystemCoreClockUpdate();
 }
 
-#ifdef __SYSTICK
-void SysTick_Init(void) {
+#ifdef __lpc_systick__
+void systick_init(void) {
   SysTick_Config(SystemCoreClock / TICKRATE_HZ);
 }
 #endif
 
-#ifdef __GPIO
-void GPIO_Init(void) {
+#ifdef __lpc_gpio__
+void gpio_init(void) {
   Chip_GPIO_Init(LPC_GPIO_PORT);
 #ifdef tstPin0
   Chip_GPIO_SetPinState(LPC_GPIO_PORT, 0, tstPin0, false);
@@ -31,47 +31,45 @@ void GPIO_Init(void) {
 }
 #endif
 
-#ifdef __UART
-void UART_Init(void) {
+#ifdef __lpc_uart__
+void uart_init(void) {
 
 	/* Enable the clock to the Switch Matrix */
 	Chip_Clock_EnablePeriphClock(SYSCTL_CLOCK_SWM);
 
-	/* Connect the U0_TXD_O and U0_RXD_I signals to port pins(P0.18, P0.7) */
-	Chip_SWM_DisableFixedPin(SWM_FIXED_ADC0);
-	Chip_SWM_DisableFixedPin(SWM_FIXED_ADC8);
-
-	/* Enable UART Divider clock, divided by 1 */
-	Chip_Clock_SetUARTClockDiv(1);
-
-	/* Divided by 1 */
-	if (LPC_UART == LPC_USART0) {
-		Chip_SWM_MovablePinAssign(SWM_U0_TXD_O, 18);
-		Chip_SWM_MovablePinAssign(SWM_U0_RXD_I, 7);
-	} else if (LPC_UART == LPC_USART1) {
-		Chip_SWM_MovablePinAssign(SWM_U1_TXD_O, 18);
-		Chip_SWM_MovablePinAssign(SWM_U1_RXD_I, 7);
-	} else {
-		Chip_SWM_MovablePinAssign(SWM_U2_TXD_O, 18);
-		Chip_SWM_MovablePinAssign(SWM_U2_RXD_I, 7);
-	}
+  #ifdef LPC_UART0
+  // Chip_SWM_MovablePinAssign(SWM_U0_TXD_O, 18);
+  // Chip_SWM_MovablePinAssign(SWM_U0_RXD_I, 7);
+  #endif
+  #ifdef LPC_UART1
+  /* Connect the U0_TXD_O and U0_RXD_I signals to port pins(P0.0, P0.1) */
+  Chip_SWM_DisableFixedPin(SWM_FIXED_ACMP_I1);
+  Chip_SWM_DisableFixedPin(SWM_FIXED_ACMP_I2);
+  /* Enable UART Divider clock, divided by 1 */
+  Chip_Clock_SetUARTClockDiv(1);
+	Chip_SWM_MovablePinAssign(SWM_U1_TXD_O, 0);
+	Chip_SWM_MovablePinAssign(SWM_U1_RXD_I, 1);
+  #endif
+  #ifdef LPC_UART2
+  // Chip_SWM_MovablePinAssign(SWM_U2_TXD_O, 18);
+  // Chip_SWM_MovablePinAssign(SWM_U2_RXD_I, 7);
+  #endif
 
 	/* Disable the clock to the Switch Matrix to save power */
 	Chip_Clock_DisablePeriphClock(SYSCTL_CLOCK_SWM);
 
-
-  	Chip_UART_Init(LPC_UART);
-  	Chip_UART_ConfigData(LPC_UART, UART_CFG_DATALEN_8 | UART_CFG_PARITY_NONE | UART_CFG_STOPLEN_1);
-  	Chip_Clock_SetUSARTNBaseClockRate((115200 * 16), true);
-  	Chip_UART_SetBaud(LPC_UART, 115200);
-  	Chip_UART_Enable(LPC_UART);
-  	Chip_UART_TXEnable(LPC_UART);
+	Chip_UART_Init(LPC_UART1);
+	Chip_UART_ConfigData(LPC_UART1, UART_CFG_DATALEN_8 | UART_CFG_PARITY_NONE | UART_CFG_STOPLEN_1);
+	Chip_Clock_SetUSARTNBaseClockRate((LPC_UART1_BAUD * 16), true);
+	Chip_UART_SetBaud(LPC_UART1, LPC_UART1_BAUD);
+	Chip_UART_Enable(LPC_UART1);
+	Chip_UART_TXEnable(LPC_UART1);
 }
 #endif
 
-#ifdef __SPI
+#ifdef __lpc_spi__
 
-void SPI_Init(void) {
+void spi_init(void) {
 	SPI_DELAY_CONFIG_T DelayConfigStruct;
 	/*
 	 * Initialize SSP0 pins connect
@@ -116,11 +114,11 @@ void SPI_Init(void) {
 }
 #endif
 
-#ifdef __DMA
+#ifdef __lpc_dma__
 DMA_CHDESC_T dmaDesc;
 uint8_t src[SRC_SIZE] = {0xAA, 0x01, 0x02, 0x03};
 
-void DMA_Init(void) {
+void dma_init(void) {
 	/* DMA initialization - enable DMA clocking and reset DMA if needed */
 	Chip_DMA_Init(LPC_DMA);
 
@@ -158,7 +156,7 @@ void DMA_Init(void) {
 }
 #endif
 
-#ifdef __ADC
+#ifdef __lpc_adc__
 void ADC_Init(void) {
   Chip_ADC_Init(LPC_ADC, 0);
   Chip_ADC_StartCalibration(LPC_ADC);
@@ -180,12 +178,22 @@ void ADC_Init(void) {
 }
 #endif
 
-void Board_Init(void){
-	SystemClock_Init();
-	SysTick_Init();
-	GPIO_Init();
-	// UART_Init();
-	// SPI_Init();
-	// DMA_Init();
+void board_init(void){
+	systemclock_init();
+	#ifdef __lpc_systick__
+  systick_init();
+  #endif
+  #ifdef __lpc_gpio__
+  gpio_init();
+  #endif
+  #ifdef __lpc_uart__
+	uart_init();
+  #endif
+  #ifdef __lpc_spi__
+	spi_init();
+  #endif
+  #ifdef __lpc_dma__
+  dma_init();
+  #endif
 	//Chip_UART_SendBlocking(LPC_UART, msg, sizeof(msg));
 }
