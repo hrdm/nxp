@@ -49,5 +49,4 @@ int main(void) {
 void SysTick_Handler(void) {
 	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT, 0, tstPin0);
 	Chip_UART_SendByte(LPC_UART1, 'm');
-	Chip_SPI_WriteTXData(LPC_SPI, 'x');
 }

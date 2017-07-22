@@ -27,11 +27,11 @@
 
 /* SPI defines */
 #define LPC_SPI	LPC_SPI1
-#define LPC_SPI_RATE 4000000 //Hz
-#define LPC_SPI1_SSEL0 24
-#define LPC_SPI1_SCK 25
-#define LPC_SPI1_MISO 26
-#define LPC_SPI1_MOSI 27
+#define LPC_SPI_RATE 16000000 //Hz
+#define LPC_SPI1_SSEL0 15
+#define LPC_SPI1_SCK 24
+#define LPC_SPI1_MISO 25
+#define LPC_SPI1_MOSI 26
 
 /* DMA defines */
 #define SRC_SIZE 4

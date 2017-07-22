@@ -325,3 +325,66 @@ org.eclipse.core.internal.resources.ResourceException: Resource is out of sync w
 
 !ENTRY com.crt.ctrlcenter 2 0 2017-07-21 02:27:17.624
 !MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+!SESSION 2017-07-22 02:08:54.443 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2017-07-22 02:09:03.251
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-07-22 02:09:03.270
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2017-07-22 02:09:06.537
+!MESSAGE Recreating part suppport. No part support available.
+
+!ENTRY com.crt.log 1 0 2017-07-22 02:45:00.975
+!MESSAGE Drivers loaded in 695 milliseconds
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 02:45:04.199
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 02:45:04.205
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 02:48:06.911
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 02:48:06.915
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 03:03:29.934
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 03:03:29.938
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 03:21:48.286
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 03:21:48.291
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY Program Flash 4 -1 2017-07-22 03:21:57.572
+!MESSAGE 02: Failed on connect: Ee(36). Could not connect to core.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 03:22:23.098
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 03:22:23.105
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 03:29:45.317
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 03:29:45.322
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 03:34:23.214
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-22 03:34:23.218
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.

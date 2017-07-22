@@ -17,4 +17,11 @@
 		<item value="org.eclipse.platform:4.6.3.v20170301-0400"/>
 		<item value="org.eclipse.rcp:4.6.3.v20170301-0400"/>
 	</list>
+	<section name="SaveAsDialogSettings">
+		<item value="633" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="614" key="DIALOG_HEIGHT"/>
+		<item value="654" key="DIALOG_X_ORIGIN"/>
+		<item value="126" key="DIALOG_Y_ORIGIN"/>
+	</section>
 </section>

@@ -1,6 +1,33 @@
-03:05:38 **** Incremental Build of configuration Debug for project dma_tst ****
+03:34:12 **** Incremental Build of configuration Debug for project dma_tst ****
 make -r -j8 all 
-make: Nothing to be done for 'all'.
+Building file: ../src/brd.c
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__USE_LPCOPEN -DNO_BOARD_LIB -D__LPC82X__ -D__REDLIB__ -I"/media/milton/Data/embedded systems/nxp/nxp/nxp-linux/dma_tst/inc" -I"/media/milton/Data/embedded systems/nxp/nxp/nxp-linux/lpc_chip_82x/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/brd.d" -MT"src/brd.o" -MT"src/brd.d" -o "src/brd.o" "../src/brd.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M0PLUS -D__MTB_BUFFER_SIZE=256 -D__USE_ROMDIVIDE -D__USE_LPCOPEN -DNO_BOARD_LIB -D__LPC82X__ -D__REDLIB__ -I"/media/milton/Data/embedded systems/nxp/nxp/nxp-linux/dma_tst/inc" -I"/media/milton/Data/embedded systems/nxp/nxp/nxp-linux/lpc_chip_82x/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -specs=redlib.specs -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/brd.c: In function 'systemclock_init':
+../src/brd.c:6:3: warning: implicit declaration of function 'SystemInit' [-Wimplicit-function-declaration]
+   SystemInit();
+   ^
+Finished building: ../src/main.c
+ 
+Finished building: ../src/brd.c
+ 
+Building target: dma_tst.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/media/milton/Data/embedded systems/nxp/nxp/nxp-linux/lpc_chip_82x/Debug" -Xlinker -Map="dma_tst.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0 -mthumb -T "dma_tst_Debug.ld" -o "dma_tst.axf"  ./src/aeabi_romdiv_patch.o ./src/brd.o ./src/cr_startup_lpc82x.o ./src/crp.o ./src/main.o ./src/mtb.o ./src/sysinit.o   -llpc_chip_82x
+Memory region         Used Size  Region Size  %age Used
+        MFlash32:        6036 B        32 KB     18.42%
+         RamLoc8:         272 B         8 KB      3.32%
+Finished building target: dma_tst.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "dma_tst.axf"; # arm-none-eabi-objcopy -v -O binary "dma_tst.axf" "dma_tst.bin" ; # checksum -p LPC824 -d "dma_tst.bin";
+   text	   data	    bss	    dec	    hex	filename
+   6036	      0	    272	   6308	   18a4	dma_tst.axf
+ 
 
-03:05:38 Build Finished (took 74ms)
+03:34:12 Build Finished (took 230ms)
 

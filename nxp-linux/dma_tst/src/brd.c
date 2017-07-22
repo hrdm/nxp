@@ -31,6 +31,7 @@ void gpio_init(void) {
 }
 #endif
 
+
 #ifdef __lpc_uart__
 void uart_init(void) {
 
@@ -47,8 +48,8 @@ void uart_init(void) {
   Chip_SWM_DisableFixedPin(SWM_FIXED_ACMP_I2);
   /* Enable UART Divider clock, divided by 1 */
   Chip_Clock_SetUARTClockDiv(1);
-	Chip_SWM_MovablePinAssign(SWM_U1_TXD_O, 0);
-	Chip_SWM_MovablePinAssign(SWM_U1_RXD_I, 1);
+	Chip_SWM_MovablePinAssign(SWM_U1_TXD_O, LPC_UART1_TX_PIN);
+	Chip_SWM_MovablePinAssign(SWM_U1_RXD_I, LPC_UART1_RX_PIN);
   #endif
   #ifdef LPC_UART2
   // Chip_SWM_MovablePinAssign(SWM_U2_TXD_O, 18);
@@ -67,38 +68,38 @@ void uart_init(void) {
 }
 #endif
 
-#ifdef __lpc_spi__
 
+#ifdef __lpc_spi__
 void spi_init(void) {
 	SPI_DELAY_CONFIG_T DelayConfigStruct;
-	/*
-	 * Initialize SSP0 pins connect
-	 * SSEL1: PINASSIGN5[23:16]: Select P0.15
-	 * SCK1: PINASSIGN4[31:24]: Select P0.24
-	 * MISO1: PINASSIGN5[15:8] : Select P0.25
-	 * MOSI1: PINASSIGN5[7:0]: Select P0.26
+	/* Initialize SSP0 pins connect
+	 *   SSEL1: PINASSIGN5[23:16]: Select P0.15
+	 *   SCK1 : PINASSIGN4[31:24]: Select P0.24
+	 *   MISO1: PINASSIGN5[15:8] : Select P0.25
+	 *   MOSI1: PINASSIGN5[7:0]  : Select P0.26
 	 */
 	Chip_Clock_EnablePeriphClock(SYSCTL_CLOCK_SWM);
-	Chip_SWM_MovablePinAssign(SWM_SPI1_SSEL0_IO, 15);
-	Chip_SWM_MovablePinAssign(SWM_SPI1_SCK_IO, 24);
-	Chip_SWM_MovablePinAssign(SWM_SPI1_MISO_IO, 25);
-	Chip_SWM_MovablePinAssign(SWM_SPI1_MOSI_IO, 26);
+
+	Chip_SWM_MovablePinAssign(SWM_SPI1_SSEL0_IO, LPC_SPI1_SSEL0);
+	Chip_SWM_MovablePinAssign(SWM_SPI1_SCK_IO, LPC_SPI1_SCK);
+	Chip_SWM_MovablePinAssign(SWM_SPI1_MISO_IO, LPC_SPI1_MISO);
+	Chip_SWM_MovablePinAssign(SWM_SPI1_MOSI_IO, LPC_SPI1_MOSI);
 	Chip_Clock_DisablePeriphClock(SYSCTL_CLOCK_SWM);
-    /*
-	 ConfigStruct.Mode = SPI_MODE_TEST;
-	 ConfigStruct.ClkDiv = Chip_SPI_CalClkRateDivider(LPC_SPI, 100000);
-	 ConfigStruct.ClockMode = SPI_CLOCK_CPHA0_CPOL0;
-	 ConfigStruct.DataOrder = SPI_DATA_MSB_FIRST;
-	 ConfigStruct.SSELPol = SPI_SSEL_ACTIVE_LO;
-	*/
+  /* Configuration
+   * ConfigStruct.Mode = SPI_MODE_TEST;
+   * ConfigStruct.ClkDiv = Chip_SPI_CalClkRateDivider(LPC_SPI, 100000);
+   * ConfigStruct.ClockMode = SPI_CLOCK_CPHA0_CPOL0;
+   * ConfigStruct.DataOrder = SPI_DATA_MSB_FIRST;
+   * ConfigStruct.SSELPol = SPI_SSEL_ACTIVE_LO;
+   */
 	Chip_SPI_Init(LPC_SPI);
 	Chip_SPI_ConfigureSPI(LPC_SPI, SPI_MODE_MASTER |	/* Enable master/Slave mode */
-					  SPI_CLOCK_CPHA0_CPOL0 |	/* Set Clock polarity to 0 */
-					  SPI_CFG_MSB_FIRST_EN |/* Enable MSB first option */
-					  SPI_CFG_SPOL_LO|
-//					  SPI_TXCTL_RXIGNORE|
-					  SPI_CFG_LBM_EN);	/* Chipselect is active low */
-	Chip_SPI_SetControlInfo(LPC_SPI, 8,
+					              SPI_CLOCK_CPHA0_CPOL0 |	    /* Set Clock polarity to 0 */
+					              SPI_CFG_MSB_FIRST_EN |      /* Enable MSB first option */
+					              SPI_CFG_SPOL_LO|
+//					            SPI_TXCTL_RXIGNORE|
+					              SPI_CFG_LBM_EN);	          /* Chipselect is active low */
+  Chip_SPI_SetControlInfo(LPC_SPI, 8,
 						(SPI_TXCTL_ASSERT_SSEL |
 						 SPI_TXCTL_EOT |
 						 SPI_TXCTL_RXIGNORE));
@@ -179,21 +180,21 @@ void ADC_Init(void) {
 #endif
 
 void board_init(void){
-	systemclock_init();
-	#ifdef __lpc_systick__
+  systemclock_init();
+  #ifdef __lpc_systick__
   systick_init();
   #endif
   #ifdef __lpc_gpio__
   gpio_init();
   #endif
   #ifdef __lpc_uart__
-	uart_init();
+  uart_init();
   #endif
   #ifdef __lpc_spi__
-	spi_init();
+  spi_init();
   #endif
   #ifdef __lpc_dma__
   dma_init();
   #endif
-	//Chip_UART_SendBlocking(LPC_UART, msg, sizeof(msg));
+  //Chip_UART_SendBlocking(LPC_UART, msg, sizeof(msg));
 }
