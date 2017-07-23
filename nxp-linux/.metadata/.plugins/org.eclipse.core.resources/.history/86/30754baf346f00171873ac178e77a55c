@@ -117,7 +117,7 @@ void spi_init(void) {
 
 #ifdef __lpc_dma__
 DMA_CHDESC_T dmaDesc;
-uint8_t src[SRC_SIZE] = {'h', 'r', 'd', 'm'};
+uint8_t src[SRC_SIZE] = {0xAA, 0x01, 0x02, 0x03};
 
 void dma_init(void) {
 	/* DMA initialization - enable DMA clocking and reset DMA if needed */
@@ -145,7 +145,7 @@ void dma_init(void) {
 	Chip_DMA_SetValidChannel(LPC_DMA, DMA_CH9);
 	Chip_DMA_SetupChannelTransfer(LPC_DMA, DMA_CH9,
 								  (DMA_XFERCFG_CFGVALID |
-								   DMA_XFERCFG_SWTRIG   |
+//								   DMA_XFERCFG_SWTRIG   |
 								   DMA_XFERCFG_WIDTH_8 |
 								   DMA_XFERCFG_SRCINC_1 |
 								   DMA_XFERCFG_DSTINC_0|
@@ -195,5 +195,5 @@ void board_init(void){
   dma_init();
   #endif
   //Chip_UART_SendBlocking(LPC_UART, msg, sizeof(msg));
-  NVIC_EnableIRQ(/*DMA_IRQn|*/SysTick_IRQn);
+  NVIC_EnableIRQ(DMA_IRQn|SysTick_IRQn);
 }

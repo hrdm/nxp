@@ -50,12 +50,5 @@ void SysTick_Handler(void) {
 	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT, 0, tstPin0);
 	Chip_UART_SendByte(LPC_UART1, 'm');
 	// Chip_SPI_WriteTXData(LPC_SPI, 'x');
-	Chip_DMA_SetupChannelTransfer(LPC_DMA, DMA_CH9,
-								  (DMA_XFERCFG_CFGVALID |
-								   DMA_XFERCFG_SWTRIG   |
-								   DMA_XFERCFG_WIDTH_8 |
-								   DMA_XFERCFG_SRCINC_1 |
-								   DMA_XFERCFG_DSTINC_0|
-								   DMA_XFERCFG_XFERCOUNT(SRC_SIZE)));
-//	Chip_DMA_SetTrigChannel(LPC_DMA, DMA_CH9);
+	Chip_DMA_SetTrigChannel(LPC_DMA, DMA_CH9);
 }

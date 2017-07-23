@@ -7,8 +7,8 @@
 #define __lpc_systick__
 #define __lpc_gpio__
 #define __lpc_uart__
-#define __lpc_spi__
-#define __lpc_dma__
+// #define __lpc_spi__
+//#define __lpc_dma__
 // #define __lpc_adc__
 
 
