@@ -493,3 +493,132 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.crt.ctrlcenter 2 0 2017-07-23 02:22:40.178
 !MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+!SESSION 2017-07-23 11:56:04.873 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2017-07-23 11:56:13.311
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2017-07-23 11:56:13.329
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2017-07-23 11:56:16.437
+!MESSAGE Recreating part suppport. No part support available.
+
+!ENTRY com.crt.log 1 0 2017-07-23 11:57:02.882
+!MESSAGE Drivers loaded in 608 milliseconds
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 11:57:07.113
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 11:57:07.123
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY org.eclipse.jface 2 0 2017-07-23 12:21:51.285
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2017-07-23 12:21:51.285
+!MESSAGE A conflict occurred for ALT+ARROW_RIGHT:
+Binding(ALT+ARROW_RIGHT,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.hover.forwardMacroExpansion,Forward,
+		Steps forward in macro expansions,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@82bbbdc,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.macroExpansionHoverScope,,,system)
+Binding(ALT+ARROW_RIGHT,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.forwardHistory,Forward History,
+		Move forward in the editor navigation history,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@74f47eab,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2017-07-23 12:21:51.285
+!MESSAGE A conflict occurred for F3:
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.opendecl,Open Declaration,
+		Opens an editor on the selected element's declaration(s),
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2f8afb66,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.opendecl,Open Declaration,
+		Opens an editor on the selected element's declaration(s),
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2f8afb66,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.macroExpansionHoverScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2017-07-23 12:21:51.285
+!MESSAGE A conflict occurred for ALT+ARROW_LEFT:
+Binding(ALT+ARROW_LEFT,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.hover.backwardMacroExpansion,Back,
+		Steps backward in macro expansions,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2d4fe03b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.macroExpansionHoverScope,,,system)
+Binding(ALT+ARROW_LEFT,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.backwardHistory,Backward History,
+		Move backward in the editor navigation history,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@786f4b15,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 12:24:33.373
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 12:24:33.383
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 14:54:18.653
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 14:54:18.662
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 14:55:48.869
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 14:55:48.876
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 17:25:43.465
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 17:25:43.470
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 19:09:06.916
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 19:09:06.925
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 19:15:34.378
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 19:15:34.382
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 19:16:47.692
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 19:16:47.696
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 19:28:22.561
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.
+
+!ENTRY com.crt.ctrlcenter 2 0 2017-07-23 19:28:22.565
+!MESSAGE No active LinkServer launch configuration found in project 'dma_tst'! Please select the Connect Script manually.

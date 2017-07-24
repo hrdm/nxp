@@ -120,40 +120,38 @@ DMA_CHDESC_T dmaDesc;
 uint8_t src[SRC_SIZE] = {'h', 'r', 'd', 'm'};
 
 void dma_init(void) {
-	/* DMA init. - Enable DMA clocking and reset DMA if needed */
+	/* DMA initialization - enable DMA clocking and reset DMA if needed */
 	Chip_DMA_Init(LPC_DMA);
-	/* Enable DMA controller */
+
+	/* Enable DMA controller and use driver provided DMA table for current descriptors */
 	Chip_DMA_Enable(LPC_DMA);
-  /* Use driver provided DMA table for current descriptors */
 	Chip_DMA_SetSRAMBase(LPC_DMA, DMA_ADDR(Chip_DMA_Table));
 
-
-  /* Enable DMA channel x */
+	/* Setup channel 0 for the following configuration:
+	- High channel priority
+	- Interrupt A fires on descriptor completion */
 	Chip_DMA_EnableChannel(LPC_DMA, DMA_CH9);
-  /* Enable channel x interrupt. Interrupt fires on descriptor completion */
 	Chip_DMA_EnableIntChannel(LPC_DMA, DMA_CH9);
-  /* Enable Peripheral DMA request and High channel priority */
-	Chip_DMA_SetupChannelConfig(LPC_DMA, DMA_CH9, (DMA_CFG_PERIPHREQEN | DMA_CFG_CHPRIORITY(0)));
-	/* DMA descriptor for memory to memory operation.
-   * Note that addresses must be the END address for src and dest, not the starting address.
-	 * DMA operations moves from end to start.
-   */
-	dmaDesc.source = DMA_ADDR((&src[0]) + SRC_SIZE - 1);
+	Chip_DMA_SetupChannelConfig(LPC_DMA, DMA_CH9,
+							(DMA_CFG_PERIPHREQEN | DMA_CFG_CHPRIORITY(0)));
+
+	/* DMA descriptor for memory to memory operation - note that addresses must
+	be the END address for src and destination, not the starting address.
+	 DMA operations moves from end to start. */
+	dmaDesc.source = DMA_ADDR((&src[0]) + SRC_SIZE - 1); //	dmaDesc.source = DMA_ADDR(&src[3]);
 	dmaDesc.dest = DMA_ADDR(&LPC_SPI1->TXDAT);
-	dmaDesc.next = DMA_ADDR(0); /* End of transfers */
+	dmaDesc.next = DMA_ADDR(0);
 	Chip_DMA_SetupTranChannel(LPC_DMA, DMA_CH9, &dmaDesc);
-  /* Set channel x as valid pending to start trasnfers */
 	Chip_DMA_SetValidChannel(LPC_DMA, DMA_CH9);
-  /* Set channel x transfer */
 	Chip_DMA_SetupChannelTransfer(LPC_DMA, DMA_CH9,
-                                    (DMA_XFERCFG_CFGVALID |
-                                     DMA_XFERCFG_SWTRIG   | // sw triggers the transfer, It is more fast.
-                                     DMA_XFERCFG_WIDTH_8  |
-                                     DMA_XFERCFG_SRCINC_1 |
-                                     DMA_XFERCFG_DSTINC_0 |
-                                     DMA_XFERCFG_XFERCOUNT(SRC_SIZE)));
-  /* Set Trigger of channel x to transfer */
+								  (DMA_XFERCFG_CFGVALID |
+								   DMA_XFERCFG_SWTRIG   |
+								   DMA_XFERCFG_WIDTH_8 |
+								   DMA_XFERCFG_SRCINC_1 |
+								   DMA_XFERCFG_DSTINC_0|
+								   DMA_XFERCFG_XFERCOUNT(SRC_SIZE)));
 	Chip_DMA_SetTrigChannel(LPC_DMA, DMA_CH9);
+	/* Enable DMA interrupt */
 }
 #endif
 
